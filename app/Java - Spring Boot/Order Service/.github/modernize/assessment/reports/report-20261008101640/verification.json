@@ -1,0 +1,93 @@
+{
+  "status": "success",
+  "artifactValidation": "passed",
+  "completionEvidence": {
+    "artifactValidation": "passed",
+    "runId": "20261008101640",
+    "workspacePath": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service",
+    "artifacts": {
+      "report": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\reports\\report-20261008101640\\report.json",
+      "normalizedAssessment": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\.memory\\runs\\20261008101640\\normalized-assessment.json",
+      "html": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\reports\\20261008101640-assess.html",
+      "appcat": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\.memory\\runs\\20261008101640\\appcat\\report.json",
+      "security": {
+        "cve-known-vulnerabilities": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cve-known-vulnerabilities.json",
+        "cwe-code-quality": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cwe-code-quality.json",
+        "cwe-concurrency-synchronization": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cwe-concurrency-synchronization.json",
+        "cwe-credentials-secrets": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cwe-credentials-secrets.json",
+        "cwe-file-path-security": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cwe-file-path-security.json",
+        "cwe-injection-attacks": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cwe-injection-attacks.json",
+        "cwe-memory-safety": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cwe-memory-safety.json"
+      },
+      "verification": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\reports\\report-20261008101640\\verification.json"
+    },
+    "findingCounts": {
+      "total": 20,
+      "tracked": 20,
+      "bySeverity": {
+        "critical": 0,
+        "high": 9,
+        "medium": 7,
+        "low": 4,
+        "info": 0
+      },
+      "byState": {
+        "new": 20
+      }
+    },
+    "topRecommendation": {
+      "kind": "generic",
+      "summary": "Spring Boot Version Has Reached the End of OSS Support",
+      "next_action": "create-modernization-plan",
+      "prefilled_prompt": "Create a modernization plan from the assessment's high-priority findings"
+    },
+    "partialTasks": [],
+    "coverageSource": "default"
+  },
+  "language": "java",
+  "domains": [
+    "java-upgrade",
+    "cloud-readiness",
+    "security"
+  ],
+  "analysisCoverage": "issue-only",
+  "coverageSource": "default",
+  "findingCounts": {
+    "total": 20,
+    "tracked": 20,
+    "bySeverity": {
+      "critical": 0,
+      "high": 9,
+      "medium": 7,
+      "low": 4,
+      "info": 0
+    },
+    "byState": {
+      "new": 20
+    }
+  },
+  "topRecommendation": {
+    "kind": "generic",
+    "summary": "Spring Boot Version Has Reached the End of OSS Support",
+    "next_action": "create-modernization-plan",
+    "prefilled_prompt": "Create a modernization plan from the assessment's high-priority findings"
+  },
+  "artifacts": {
+    "report": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\reports\\report-20261008101640\\report.json",
+    "normalizedAssessment": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\.memory\\runs\\20261008101640\\normalized-assessment.json",
+    "html": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\reports\\20261008101640-assess.html",
+    "appcat": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\.memory\\runs\\20261008101640\\appcat\\report.json",
+    "security": {
+      "cve-known-vulnerabilities": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cve-known-vulnerabilities.json",
+      "cwe-code-quality": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cwe-code-quality.json",
+      "cwe-concurrency-synchronization": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cwe-concurrency-synchronization.json",
+      "cwe-credentials-secrets": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cwe-credentials-secrets.json",
+      "cwe-file-path-security": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cwe-file-path-security.json",
+      "cwe-injection-attacks": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cwe-injection-attacks.json",
+      "cwe-memory-safety": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\engines\\security\\incoming\\cwe-memory-safety.json"
+    },
+    "verification": "C:\\Users\\A116466\\source\\repos\\copilot-worktrees\\ghcp-agentic-modernisation-lab\\dtshilengek-jubilant-carnival\\app\\Java - Spring Boot\\Order Service\\.github\\modernize\\assessment\\reports\\report-20261008101640\\verification.json"
+  },
+  "failedTasks": [],
+  "planningSupported": true
+}
