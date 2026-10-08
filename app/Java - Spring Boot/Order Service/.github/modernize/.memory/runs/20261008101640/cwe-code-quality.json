@@ -1,0 +1,226 @@
+{
+  "timestamp": "2026-10-08T12:22:01.9833400+02:00",
+  "execution_time_seconds": 0,
+  "input_name": "CWE - Code Quality",
+  "result": {
+    "values": [
+      {
+        "id": "CWE-130",
+        "storyPoint": 3,
+        "category": "Code Quality",
+        "name": "Improper Handling of Length Parameter Inconsistency",
+        "description": "The product parses a formatted message or structure, but it does not handle or incorrectly handles a length field that is inconsistent with the actual length of the associated data.",
+        "status": "NOT_FOUND",
+        "severity": "potential",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-456",
+        "storyPoint": 2,
+        "category": "Code Quality",
+        "name": "Missing Initialization of a Variable",
+        "description": "The product does not initialize critical variables, which causes the execution environment to use unexpected values.",
+        "status": "NOT_FOUND",
+        "severity": "potential",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-457",
+        "storyPoint": 2,
+        "category": "Code Quality",
+        "name": "Use of Uninitialized Variable",
+        "description": "The code uses a variable that has not been initialized, leading to unpredictable or unintended results.",
+        "status": "NOT_FOUND",
+        "severity": "potential",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-477",
+        "storyPoint": 1,
+        "category": "Code Quality",
+        "name": "Use of Obsolete Function",
+        "description": "The code uses deprecated or obsolete functions, which suggests that the code has not been actively reviewed or maintained.",
+        "status": "FOUND",
+        "severity": "optional",
+        "evidence": {
+          "explanation": "WebConfig extends the deprecated WebMvcConfigurerAdapter (Spring 5+ deprecated in favor of the WebMvcConfigurer interface), as documented in the class Javadoc comment.",
+          "files": [
+            "src/main/java/com/contoso/demo/orderservice/config/WebConfig.java"
+          ]
+        }
+      },
+      {
+        "id": "CWE-570",
+        "storyPoint": 1,
+        "category": "Code Quality",
+        "name": "Expression is Always False",
+        "description": "The product contains an expression that will always evaluate to false.",
+        "status": "NOT_FOUND",
+        "severity": "optional",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-571",
+        "storyPoint": 1,
+        "category": "Code Quality",
+        "name": "Expression is Always True",
+        "description": "The product contains an expression that will always evaluate to true.",
+        "status": "NOT_FOUND",
+        "severity": "optional",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-606",
+        "storyPoint": 3,
+        "category": "Code Quality",
+        "name": "Unchecked Input for Loop Condition",
+        "description": "The product does not properly check inputs that are used for loop conditions, potentially leading to a denial of service or other consequences because of excessive looping.",
+        "status": "NOT_FOUND",
+        "severity": "potential",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-665",
+        "storyPoint": 3,
+        "category": "Code Quality",
+        "name": "Improper Initialization",
+        "description": "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used.",
+        "status": "NOT_FOUND",
+        "severity": "potential",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-681",
+        "storyPoint": 3,
+        "category": "Code Quality",
+        "name": "Incorrect Conversion between Numeric Types",
+        "description": "When converting from one data type to another, such as long to integer, data can be omitted or translated in a way that produces unexpected values. If the resulting values are used in a sensitive context, then dangerous behaviors may occur.",
+        "status": "NOT_FOUND",
+        "severity": "potential",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-682",
+        "storyPoint": 5,
+        "category": "Code Quality",
+        "name": "Incorrect Calculation",
+        "description": "The product performs a calculation that generates incorrect or unintended results that are later used in security-critical decisions or resource management.",
+        "status": "NOT_FOUND",
+        "severity": "potential",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-772",
+        "storyPoint": 3,
+        "category": "Code Quality",
+        "name": "Missing Release of Resource after Effective Lifetime",
+        "description": "The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.",
+        "status": "NOT_FOUND",
+        "severity": "potential",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-775",
+        "storyPoint": 3,
+        "category": "Code Quality",
+        "name": "Missing Release of File Descriptor or Handle after Effective Lifetime",
+        "description": "The product does not release a file descriptor or handle after its effective lifetime has ended, i.e., after the file descriptor/handle is no longer needed.",
+        "status": "NOT_FOUND",
+        "severity": "potential",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-783",
+        "storyPoint": 1,
+        "category": "Code Quality",
+        "name": "Operator Precedence Logic Error",
+        "description": "The product uses an expression in which operator precedence causes incorrect logic to be used.",
+        "status": "NOT_FOUND",
+        "severity": "optional",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-789",
+        "storyPoint": 5,
+        "category": "Code Quality",
+        "name": "Memory Allocation with Excessive Size Value",
+        "description": "The product allocates memory based on an untrusted, large size value, but it does not ensure that the size is within expected limits, allowing arbitrary amounts of memory to be allocated.",
+        "status": "NOT_FOUND",
+        "severity": "potential",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-835",
+        "storyPoint": 3,
+        "category": "Code Quality",
+        "name": "Loop with Unreachable Exit Condition ('Infinite Loop')",
+        "description": "The product contains an iteration or loop with an exit condition that cannot be reached, i.e., an infinite loop.",
+        "status": "NOT_FOUND",
+        "severity": "potential",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      },
+      {
+        "id": "CWE-1057",
+        "storyPoint": 5,
+        "category": "Code Quality",
+        "name": "Data Access Operations Outside of Expected Data Manager Component",
+        "description": "The product uses a dedicated, central data manager component as required by design, but it contains code that performs data-access operations that do not use this data manager.",
+        "status": "NOT_FOUND",
+        "severity": "potential",
+        "evidence": {
+          "explanation": "",
+          "files": []
+        }
+      }
+    ],
+    "evidence": [
+      "Scanned application source files for code quality patterns"
+    ],
+    "confidence": "high",
+    "finding": "Assessed 16 CWE rules in Code Quality: 1 FOUND, 15 NOT_FOUND"
+  },
+  "analysis_method": "LLM",
+  "status": "success"
+}

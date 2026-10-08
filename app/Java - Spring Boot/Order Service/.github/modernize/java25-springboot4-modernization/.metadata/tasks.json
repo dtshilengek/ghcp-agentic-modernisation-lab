@@ -1,0 +1,52 @@
+{
+    "description":  "Tasks for Order Service Java 25 and Spring Boot 4 modernization: upgrade runtime/framework, remediate known CVEs.",
+    "tasks":  [
+                  {
+                      "id":  "001-upgrade-spring-boot-4",
+                      "description":  "Upgrade Order Service from Java 8 and Spring Boot 2.7.18 to Java 25 and Spring Boot 4.x, including the Jakarta EE migration (javax.* to jakarta.*) required by the new framework compatibility matrix.",
+                      "status":  "completed",
+                      "taskSummary":  "Upgraded spring-boot-starter-parent from 2.7.18 to 4.1.1 and set java.version/maven.compiler.source/target to 25 (maven-compiler-plugin kept at 3.15.0). Migrated javax.persistence and javax.validation imports to jakarta.* in Order.java and OrderController.java. Replaced the deprecated WebMvcConfigurerAdapter with WebMvcConfigurer in WebConfig. Resolved Spring Boot 4 test-infrastructure breaking changes: added spring-boot-data-jpa-test and spring-boot-webmvc-test test dependencies (these test slices were split out of spring-boot-test-autoconfigure in Spring Boot 4), updated @DataJpaTest/@WebMvcTest imports to their new packages (org.springframework.boot.data.jpa.test.autoconfigure / org.springframework.boot.webmvc.test.autoconfigure), and replaced the removed @MockBean annotation with @MockitoBean. Also resolved a pre-existing JVM trust-store gap (Zscaler TLS-inspection root CA missing from both JDK 8 and newly-installed JDK 25 cacerts) that blocked all Maven Central downloads, by importing the corporate root CA into both JDKs' cacerts. Installed JDK 25 (Temurin) at C:\\Users\\A116466\\AppData\\Local\\jdks\\jdk-25.0.2. Verified with `mvn clean test-compile` (success) and `mvn clean test` (20/20 tests passed, BUILD SUCCESS). The log4j-core 2.14.1 and commons-text 1.9 CVE-exercise pins were intentionally left unchanged as they are explicitly in scope for task 002-security-cve-remediation.",
+                      "successCriteria":  {
+                                              "generateNewUnitTests":  "false",
+                                              "passUnitTests":  "true",
+                                              "passBuild":  "true"
+                                          },
+                      "successCriteriaStatus":  {
+                                              "passBuild":  true,
+                                              "passUnitTests":  true
+                                          },
+                      "requirements":  "Upgrade the Maven project to target Java 25, upgrade spring-boot-starter-parent to the latest Spring Boot 4.x release, and migrate all javax.* imports (javax.persistence, javax.validation) to their jakarta.* equivalents. Update maven-compiler-plugin source/target to 25. Replace the deprecated WebMvcConfigurerAdapter in WebConfig with the WebMvcConfigurer interface. Addresses issues: Spring Boot Version Has Reached the End of OSS Support, Use of Obsolete Function (CWE-477, WebMvcConfigurerAdapter).",
+                      "type":  "upgrade",
+                      "reason":  "The application currently runs on Java 8 and Spring Boot 2.7.18, both of which have reached end of OSS support (AppCAT top recommendation: \u0027Spring Boot Version Has Reached the End of OSS Support\u0027). The user requested migration to Java 25 and a Spring Boot upgrade; per the framework compatibility matrix, Java 25 requires Spring Boot 4.x (Spring Framework 7.x, Jakarta EE)."
+                  },
+                  {
+                      "id":  "002-security-cve-remediation",
+                      "description":  "Scan all project dependencies for known CVEs and remediate any identified vulnerabilities to ensure the application is secure before deployment.",
+                      "status":  "completed",
+                      "taskSummary":  "Removed the 'intentionally pinned' vulnerable version pins from pom.xml and upgraded log4j-core from 2.14.1 to 2.25.5 (matching the log4j-api/log4j-to-slf4j version already resolved transitively via the Spring Boot 4.1.1 logging starter), fixing the Log4Shell family (CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, CVE-2021-44832) plus CVE-2025-68161/CVE-2026-34477/CVE-2026-34480. Upgraded commons-text from 1.9 to 1.14.0, fixing Text4Shell (CVE-2022-42889). H2 required no change: it has no explicit version pin in pom.xml and is already managed by the Spring Boot 4.1.1 parent BOM at 2.4.240, well above the patched 2.2.220 threshold, so CVE-2022-45868 was already not applicable. Post-fix re-scan via validate-cves-for-java against log4j-core:2.25.5, commons-text:1.14.0, and h2:2.4.240 confirmed zero known CVEs remain. Verified with `mvn clean test` (JDK 25, Maven 3.10.0): BUILD SUCCESS, 20/20 tests passed. No major-version/framework migrations were required; all fixes were drop-in patch/minor upgrades within the same major version line, so no breaking-change risk was introduced. Committed as 39edd458a5ffbc1fcd68262786aa5f219c56f491 on branch modernize/java-20261008104714.",
+                      "successCriteria":  {
+                                              "generateNewUnitTests":  "false",
+                                              "passUnitTests":  "true",
+                                              "passBuild":  "true"
+                                          },
+                      "successCriteriaStatus":  {
+                                              "passBuild":  true,
+                                              "passUnitTests":  true
+                                          },
+                      "requirements":  "Upgrade vulnerable dependencies to the minimum patched version: log4j-core to at least 2.17.1 (prefer latest 2.x), commons-text to at least 1.10.0, and h2 to at least 2.2.220. If a CVE fix requires a major version upgrade, document the affected dependency, the current version, the upgraded major version, and the breaking change risk. Verify that the project builds and all tests pass after remediation. Addresses issues: CVE-2021-44228 (Log4Shell), CVE-2021-45046, CVE-2021-45105, CVE-2021-44832, CVE-2025-68161, CVE-2026-34477, CVE-2026-34480, CVE-2022-45868 (H2 password exposure), CVE-2022-42889 (Text4Shell).",
+                      "type":  "security",
+                      "reason":  "The assessment identified 9 known CVEs in direct dependencies, including the critical Log4Shell family (CVE-2021-44228, CVE-2021-45046), Text4Shell (CVE-2022-42889) in commons-text, and a high-severity password exposure issue in H2 (CVE-2022-45868).",
+                      "dependencies":  [
+                                           "001-upgrade-spring-boot-4"
+                                       ]
+                  }
+              ],
+    "$schema":  "https://json-schema.org/draft/2020-12/schema",
+    "metadata":  {
+                     "version":  "1.0",
+                     "planName":  "Order Service Java 25 and Spring Boot 4 Modernization",
+                     "language":  "java",
+                     "projectName":  "order-service",
+                     "createdAt":  "2026-10-08T10:30:49Z"
+                 }
+}
