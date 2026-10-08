@@ -22,10 +22,16 @@
                   {
                       "id":  "002-security-cve-remediation",
                       "description":  "Scan all project dependencies for known CVEs and remediate any identified vulnerabilities to ensure the application is secure before deployment.",
+                      "status":  "completed",
+                      "taskSummary":  "Removed the 'intentionally pinned' vulnerable version pins from pom.xml and upgraded log4j-core from 2.14.1 to 2.25.5 (matching the log4j-api/log4j-to-slf4j version already resolved transitively via the Spring Boot 4.1.1 logging starter), fixing the Log4Shell family (CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, CVE-2021-44832) plus CVE-2025-68161/CVE-2026-34477/CVE-2026-34480. Upgraded commons-text from 1.9 to 1.14.0, fixing Text4Shell (CVE-2022-42889). H2 required no change: it has no explicit version pin in pom.xml and is already managed by the Spring Boot 4.1.1 parent BOM at 2.4.240, well above the patched 2.2.220 threshold, so CVE-2022-45868 was already not applicable. Post-fix re-scan via validate-cves-for-java against log4j-core:2.25.5, commons-text:1.14.0, and h2:2.4.240 confirmed zero known CVEs remain. Verified with `mvn clean test` (JDK 25, Maven 3.10.0): BUILD SUCCESS, 20/20 tests passed. No major-version/framework migrations were required; all fixes were drop-in patch/minor upgrades within the same major version line, so no breaking-change risk was introduced. Committed as 39edd458a5ffbc1fcd68262786aa5f219c56f491 on branch modernize/java-20261008104714.",
                       "successCriteria":  {
                                               "generateNewUnitTests":  "false",
                                               "passUnitTests":  "true",
                                               "passBuild":  "true"
+                                          },
+                      "successCriteriaStatus":  {
+                                              "passBuild":  true,
+                                              "passUnitTests":  true
                                           },
                       "requirements":  "Upgrade vulnerable dependencies to the minimum patched version: log4j-core to at least 2.17.1 (prefer latest 2.x), commons-text to at least 1.10.0, and h2 to at least 2.2.220. If a CVE fix requires a major version upgrade, document the affected dependency, the current version, the upgraded major version, and the breaking change risk. Verify that the project builds and all tests pass after remediation. Addresses issues: CVE-2021-44228 (Log4Shell), CVE-2021-45046, CVE-2021-45105, CVE-2021-44832, CVE-2025-68161, CVE-2026-34477, CVE-2026-34480, CVE-2022-45868 (H2 password exposure), CVE-2022-42889 (Text4Shell).",
                       "type":  "security",
