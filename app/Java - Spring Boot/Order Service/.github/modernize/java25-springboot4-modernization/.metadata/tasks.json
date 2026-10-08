@@ -1,0 +1,40 @@
+{
+    "description":  "Tasks for Order Service Java 25 and Spring Boot 4 modernization: upgrade runtime/framework, remediate known CVEs.",
+    "tasks":  [
+                  {
+                      "id":  "001-upgrade-spring-boot-4",
+                      "description":  "Upgrade Order Service from Java 8 and Spring Boot 2.7.18 to Java 25 and Spring Boot 4.x, including the Jakarta EE migration (javax.* to jakarta.*) required by the new framework compatibility matrix.",
+                      "successCriteria":  {
+                                              "generateNewUnitTests":  "false",
+                                              "passUnitTests":  "true",
+                                              "passBuild":  "true"
+                                          },
+                      "requirements":  "Upgrade the Maven project to target Java 25, upgrade spring-boot-starter-parent to the latest Spring Boot 4.x release, and migrate all javax.* imports (javax.persistence, javax.validation) to their jakarta.* equivalents. Update maven-compiler-plugin source/target to 25. Replace the deprecated WebMvcConfigurerAdapter in WebConfig with the WebMvcConfigurer interface. Addresses issues: Spring Boot Version Has Reached the End of OSS Support, Use of Obsolete Function (CWE-477, WebMvcConfigurerAdapter).",
+                      "type":  "upgrade",
+                      "reason":  "The application currently runs on Java 8 and Spring Boot 2.7.18, both of which have reached end of OSS support (AppCAT top recommendation: \u0027Spring Boot Version Has Reached the End of OSS Support\u0027). The user requested migration to Java 25 and a Spring Boot upgrade; per the framework compatibility matrix, Java 25 requires Spring Boot 4.x (Spring Framework 7.x, Jakarta EE)."
+                  },
+                  {
+                      "id":  "002-security-cve-remediation",
+                      "description":  "Scan all project dependencies for known CVEs and remediate any identified vulnerabilities to ensure the application is secure before deployment.",
+                      "successCriteria":  {
+                                              "generateNewUnitTests":  "false",
+                                              "passUnitTests":  "true",
+                                              "passBuild":  "true"
+                                          },
+                      "requirements":  "Upgrade vulnerable dependencies to the minimum patched version: log4j-core to at least 2.17.1 (prefer latest 2.x), commons-text to at least 1.10.0, and h2 to at least 2.2.220. If a CVE fix requires a major version upgrade, document the affected dependency, the current version, the upgraded major version, and the breaking change risk. Verify that the project builds and all tests pass after remediation. Addresses issues: CVE-2021-44228 (Log4Shell), CVE-2021-45046, CVE-2021-45105, CVE-2021-44832, CVE-2025-68161, CVE-2026-34477, CVE-2026-34480, CVE-2022-45868 (H2 password exposure), CVE-2022-42889 (Text4Shell).",
+                      "type":  "security",
+                      "reason":  "The assessment identified 9 known CVEs in direct dependencies, including the critical Log4Shell family (CVE-2021-44228, CVE-2021-45046), Text4Shell (CVE-2022-42889) in commons-text, and a high-severity password exposure issue in H2 (CVE-2022-45868).",
+                      "dependencies":  [
+                                           "001-upgrade-spring-boot-4"
+                                       ]
+                  }
+              ],
+    "$schema":  "https://json-schema.org/draft/2020-12/schema",
+    "metadata":  {
+                     "version":  "1.0",
+                     "planName":  "Order Service Java 25 and Spring Boot 4 Modernization",
+                     "language":  "java",
+                     "projectName":  "order-service",
+                     "createdAt":  "2026-10-08T10:30:49Z"
+                 }
+}

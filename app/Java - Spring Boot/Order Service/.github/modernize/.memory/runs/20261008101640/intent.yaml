@@ -1,0 +1,9 @@
+version: 1
+captured_at: "2026-10-08T10:16:40.767Z"
+language: "java"
+selected_groups:
+  - "java-upgrade"
+  - "cloud-readiness"
+  - "security"
+analysis_coverage: "issue-only"
+coverage_source: "default"
