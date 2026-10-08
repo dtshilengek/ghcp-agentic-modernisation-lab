@@ -4,10 +4,16 @@
                   {
                       "id":  "001-upgrade-spring-boot-4",
                       "description":  "Upgrade Order Service from Java 8 and Spring Boot 2.7.18 to Java 25 and Spring Boot 4.x, including the Jakarta EE migration (javax.* to jakarta.*) required by the new framework compatibility matrix.",
+                      "status":  "completed",
+                      "taskSummary":  "Upgraded spring-boot-starter-parent from 2.7.18 to 4.1.1 and set java.version/maven.compiler.source/target to 25 (maven-compiler-plugin kept at 3.15.0). Migrated javax.persistence and javax.validation imports to jakarta.* in Order.java and OrderController.java. Replaced the deprecated WebMvcConfigurerAdapter with WebMvcConfigurer in WebConfig. Resolved Spring Boot 4 test-infrastructure breaking changes: added spring-boot-data-jpa-test and spring-boot-webmvc-test test dependencies (these test slices were split out of spring-boot-test-autoconfigure in Spring Boot 4), updated @DataJpaTest/@WebMvcTest imports to their new packages (org.springframework.boot.data.jpa.test.autoconfigure / org.springframework.boot.webmvc.test.autoconfigure), and replaced the removed @MockBean annotation with @MockitoBean. Also resolved a pre-existing JVM trust-store gap (Zscaler TLS-inspection root CA missing from both JDK 8 and newly-installed JDK 25 cacerts) that blocked all Maven Central downloads, by importing the corporate root CA into both JDKs' cacerts. Installed JDK 25 (Temurin) at C:\\Users\\A116466\\AppData\\Local\\jdks\\jdk-25.0.2. Verified with `mvn clean test-compile` (success) and `mvn clean test` (20/20 tests passed, BUILD SUCCESS). The log4j-core 2.14.1 and commons-text 1.9 CVE-exercise pins were intentionally left unchanged as they are explicitly in scope for task 002-security-cve-remediation.",
                       "successCriteria":  {
                                               "generateNewUnitTests":  "false",
                                               "passUnitTests":  "true",
                                               "passBuild":  "true"
+                                          },
+                      "successCriteriaStatus":  {
+                                              "passBuild":  true,
+                                              "passUnitTests":  true
                                           },
                       "requirements":  "Upgrade the Maven project to target Java 25, upgrade spring-boot-starter-parent to the latest Spring Boot 4.x release, and migrate all javax.* imports (javax.persistence, javax.validation) to their jakarta.* equivalents. Update maven-compiler-plugin source/target to 25. Replace the deprecated WebMvcConfigurerAdapter in WebConfig with the WebMvcConfigurer interface. Addresses issues: Spring Boot Version Has Reached the End of OSS Support, Use of Obsolete Function (CWE-477, WebMvcConfigurerAdapter).",
                       "type":  "upgrade",
